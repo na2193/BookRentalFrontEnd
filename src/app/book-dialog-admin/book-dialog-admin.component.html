@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>Add a New Book</h1>
+
+
+
+    <div mat-dialog-content>
+        <p>Please fill in the form to add a new book.</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Book Name</mat-label>
+            <input matInput [(ngModel)]="book.bookName" required>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Author Last Name</mat-label>
+            <input matInput [(ngModel)]="book.authorLastName" required>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Author First Name</mat-label>
+            <input matInput [(ngModel)]="book.authorFirstName" required>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Genre</mat-label>
+            <mat-select [(ngModel)]="book.genre" required>
+                <mat-option value="fiction">Fiction</mat-option>
+                <mat-option value="nonFiction">Non-Fiction</mat-option>
+                <mat-option value="historical">Historical</mat-option>
+                <mat-option value="youngAdult">Young Adult</mat-option>
+                <mat-option value="kids">Kids</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Summary</mat-label>
+            <textarea cols="35" rows="8" matInput [(ngModel)]="book.description" required></textarea>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>ISBN</mat-label>
+            <input matInput [(ngModel)]="book.isbn">
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Number In Stock</mat-label>
+            <input matInput [(ngModel)]="book.numInStock" type="number" required>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Image Name</mat-label>
+            <input matInput [(ngModel)]="book.imagePath">
+        </mat-form-field>
+    </div>
+
+
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="book.isbn" cdkFocusInitial>Ok</button>
+    </div>
+

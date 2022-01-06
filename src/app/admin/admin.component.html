@@ -1,0 +1,51 @@
+
+
+<button type="button" class="btn btn-success addBook" (click)="openDialog({})">Add Book</button>
+
+
+
+<div class="container" id="main-container">
+  <div class="col-md-12">
+    <div *ngFor="let book of books" class="card b-1 hover-shadow mb-20">
+      <div class="media card-body">
+        <div class="media-left pr-12">
+          <img class="avatar avatar-xl no-radius" src="\assets\images\{{book?.imagePath}}"
+            onerror="this.src='/assets/images/NotAvailable.jpg';" alt="...">
+        </div>
+        <div class="media-body">
+          <div class="mb-2">
+            <span class="fs-20 pr-16">{{book.bookName}}</span>
+          </div>
+
+          <div class="author">
+            <small class="fs-16 fw-300 ls-1">{{book.authorFirstName}} {{book.authorLastName}}</small>
+          </div>
+
+          <div class="description">
+            <div class="media-body text-left d-none d-md-block">
+              <p>{{book.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="card-footer flexbox align-items-center">
+        <div>
+          <strong>Genre: </strong>
+          <span>{{book.genre}}</span>
+        </div>
+        <div>
+          <strong>ISBN: </strong>
+          <span>{{book.isbn}}</span>
+        </div>
+        <!-- <div class="card-hover-show">
+          <button class="btn btn-xs fs-10 btn-bold btn-primary no-click stock" data-toggle="modal"
+            data-target="#modal-contact">Num In Stock: {{book.numInStock}}</button>
+          <button (click)="onOpenModal(book, 'edit')" class="btn btn-xs fs-10 btn-bold btn-warning"><i
+              class="fa fa-pencil"></i></button>
+          <button (click)="onOpenModal(book, 'delete')" class="btn btn-xs fs-10 btn-bold btn-danger"><i
+              class="fa fa-times"></i></button>
+        </div> -->
+      </footer>
+    </div>
+
