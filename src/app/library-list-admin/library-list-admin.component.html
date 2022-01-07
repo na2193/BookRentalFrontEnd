@@ -1,8 +1,4 @@
-
-
-<button type="button" class="btn btn-success addBook" (click)="openDialog({})">Add Book</button>
-
-
+<button type="button" class="btn btn-success addBook" (click)="openDialog('Add',{})">Add Book</button>
 
 <div class="container" id="main-container">
   <div class="col-md-12">
@@ -38,14 +34,12 @@
           <strong>ISBN: </strong>
           <span>{{book.isbn}}</span>
         </div>
-        <!-- <div class="card-hover-show">
+        <div class="card-hover-show">
           <button class="btn btn-xs fs-10 btn-bold btn-primary no-click stock" data-toggle="modal"
             data-target="#modal-contact">Num In Stock: {{book.numInStock}}</button>
-          <button (click)="onOpenModal(book, 'edit')" class="btn btn-xs fs-10 btn-bold btn-warning"><i
-              class="fa fa-pencil"></i></button>
-          <button (click)="onOpenModal(book, 'delete')" class="btn btn-xs fs-10 btn-bold btn-danger"><i
-              class="fa fa-times"></i></button>
-        </div> -->
+          <button (click)="openDialog('Update', book)" class="btn btn-xs fs-10 btn-bold btn-warning buttonSpace"><i class="fa fa-pencil"></i></button> 
+          <button (click)="openDialog('Delete', book)" class="btn btn-xs fs-10 btn-bold btn-danger"><i class="fa fa-times"></i></button>
+        </div> 
       </footer>
     </div>
 

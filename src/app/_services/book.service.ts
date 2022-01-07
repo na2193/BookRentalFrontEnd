@@ -37,8 +37,6 @@ export class BookService {
             );
     }
 
-    // NOT SAVING TO DATABASE AS THE FRONT END BEING PASSED IN ARE ALL NULLS  
-
     public addBook(book: Book): Observable<Book> {
         return this.http.post<Book>(`${this.apiServerURL}/api/book/add`, book)
             .pipe(

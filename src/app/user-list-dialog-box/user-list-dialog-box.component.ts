@@ -70,7 +70,7 @@ export class UserListDialogBoxComponent  {
       if(this.selectedValue == 'ROLE_USER')
         this.role.id = 1;
       else if(this.selectedValue == 'ROLE_ADMIN')
-        this.role.id = 3; 
+        this.role.id = 2; 
 
       this.role.roleName = this.local_data.roleName;
       console.log('updated role name -> ' + this.role.roleName);

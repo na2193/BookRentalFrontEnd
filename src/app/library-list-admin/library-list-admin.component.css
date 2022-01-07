@@ -220,3 +220,7 @@ small, time, .small {
     margin-left: 32px;
     margin-bottom: 15px;
 }
+
+.buttonSpace {
+    margin-right: 5px;
+}

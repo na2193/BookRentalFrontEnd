@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserListComponent } from './user-list/user-list.component';
-import { AdminComponent } from './admin/admin.component';
+import { LibraryListAdmin } from './library-list-admin/library-list-admin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: UserListComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: LibraryListAdmin },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

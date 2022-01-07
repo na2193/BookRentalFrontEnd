@@ -1,0 +1,56 @@
+<h1 mat-dialog-title><strong>Add a New Book</strong></h1>
+
+<div mat-dialog-content>
+    <p>Please fill in the form to add a new book.</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Book Name</mat-label>
+        <input matInput [(ngModel)]="local_data.bookName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="spaceBetweenFields">
+        <mat-label>Author Last Name</mat-label>
+        <input matInput [(ngModel)]="local_data.authorLastName" required>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill" class="spaceBetweenFields"> 
+        <mat-label>Author First Name</mat-label>
+        <input matInput [(ngModel)]="local_data.authorFirstName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="summaryTextArea">
+        <mat-label>Summary</mat-label>
+        <textarea cols="36" rows="4" matInput [(ngModel)]="local_data.description" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="spaceBetweenFields">
+        <mat-label>Genre</mat-label>
+        <mat-select class="genre" (selectionChange)="onChange($event)" required>
+            <mat-option [value]="option.value" *ngFor="let option of genres">{{ option.viewValue }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- To go on the next row -->
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>ISBN</mat-label>
+            <input matInput [(ngModel)]="local_data.isbn" required>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" class="spaceBetweenFields">
+            <mat-label>Number In Stock</mat-label>
+            <input matInput [(ngModel)]="local_data.numInStock" type="number" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="spaceBetweenFields">
+            <mat-label>Image Name</mat-label>
+            <input matInput [(ngModel)]="local_data.imagePath">
+        </mat-form-field>
+    </div>
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()">Save</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

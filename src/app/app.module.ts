@@ -15,13 +15,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-import { AdminComponent } from './admin/admin.component';
-import { BookDialogAdminComponent } from './book-dialog-admin/book-dialog-admin.component';
+import { LibraryListAdmin } from './library-list-admin/library-list-admin.component';
+import { LibraryListAdminAddBookDialogBox } from './library-list-admin-add-book-dialog-box/library-list-admin-add-book-dialog-box.component';
 
 import { AngularMaterialModule } from './angular-material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserListDialogBoxComponent } from './user-list-dialog-box/user-list-dialog-box.component';
 import { UserListDeleteDialogBox } from './user-list-delete-dialog-box/user-list-delete-dialog-box.component';
+import { LibraryListAdminUpdateBookDialogBoxComponent } from './library-list-admin-update-book-dialog-box/library-list-admin-update-book-dialog-box.component';
+import { LibraryListAdminDeleteBookDialogBoxComponent } from './library-list-admin-delete-book-dialog-box/library-list-admin-delete-book-dialog-box.component';
 
 
 @NgModule({
@@ -32,10 +34,12 @@ import { UserListDeleteDialogBox } from './user-list-delete-dialog-box/user-list
     HomeComponent,
     ProfileComponent,
     UserListComponent,
-    AdminComponent,
-    BookDialogAdminComponent,
+    LibraryListAdmin,
+    LibraryListAdminAddBookDialogBox,
     UserListDialogBoxComponent,
-    UserListDeleteDialogBox
+    UserListDeleteDialogBox,
+    LibraryListAdminUpdateBookDialogBoxComponent,
+    LibraryListAdminDeleteBookDialogBoxComponent
   ],
   imports: [
     BrowserModule,

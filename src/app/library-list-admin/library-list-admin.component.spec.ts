@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BookDialogAdminComponent } from './book-dialog-admin.component';
+import { LibraryListAdmin } from './library-list-admin.component';
 
-describe('BookDialogAdminComponent', () => {
-  let component: BookDialogAdminComponent;
-  let fixture: ComponentFixture<BookDialogAdminComponent>;
+describe('AdminComponent', () => {
+  let component: LibraryListAdmin;
+  let fixture: ComponentFixture<LibraryListAdmin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookDialogAdminComponent ]
+      declarations: [ LibraryListAdmin ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BookDialogAdminComponent);
+    fixture = TestBed.createComponent(LibraryListAdmin);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
