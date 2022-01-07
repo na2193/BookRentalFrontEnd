@@ -36,19 +36,18 @@ export class LibraryListAdmin implements OnInit {
     );
   }
 
-
   openDialog(action, data): void {
     let dialogRef;
 
     if(action == "Add") {
       dialogRef = this.dialog.open(LibraryListAdminAddBookDialogBox, {
-        width: '700px',
+        width: '725px',
         data: data
       });
     }
     else if(action == "Update") {
       dialogRef = this.dialog.open(LibraryListAdminUpdateBookDialogBoxComponent, {
-        width: '700px',
+        width: '725px',
         data: data
       });
     }
@@ -103,3 +102,14 @@ export class LibraryListAdmin implements OnInit {
     });
   }
 }
+
+/*
+
+TO DO:
+1. ADD PAGINATION TO THE CARDS, might change the disign since into smaller boxes insted of long rectangles since you will not see alot of info in a page without
+scrolling
+(might be better to do a table since pagination will also be easeri, can also still have the image of the book. maybe see a way to add a image from file instead of typing it in?)
+
+2. add search functionality
+
+*/

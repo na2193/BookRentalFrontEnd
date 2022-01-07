@@ -1,56 +1,69 @@
-<h1 mat-dialog-title><strong>Add a New Book</strong></h1>
-
-<div mat-dialog-content>
-    <p>Please fill in the form to add a new book.</p>
-    <mat-form-field appearance="fill">
-        <mat-label>Book Name</mat-label>
-        <input matInput [(ngModel)]="local_data.bookName" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="spaceBetweenFields">
-        <mat-label>Author Last Name</mat-label>
-        <input matInput [(ngModel)]="local_data.authorLastName" required>
-    </mat-form-field>
+<form [formGroup]="addNewBookForm" autocomplete="off" novalidate>
+    <h1 mat-dialog-title><strong>Add a New Book</strong></h1>
     
-    <mat-form-field appearance="fill" class="spaceBetweenFields"> 
-        <mat-label>Author First Name</mat-label>
-        <input matInput [(ngModel)]="local_data.authorFirstName" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="summaryTextArea">
-        <mat-label>Summary</mat-label>
-        <textarea cols="36" rows="4" matInput [(ngModel)]="local_data.description" required></textarea>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="spaceBetweenFields">
-        <mat-label>Genre</mat-label>
-        <mat-select class="genre" (selectionChange)="onChange($event)" required>
-            <mat-option [value]="option.value" *ngFor="let option of genres">{{ option.viewValue }}</mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <!-- To go on the next row -->
-    <div>
+    <div mat-dialog-content>
+        <p>Please fill in the form to add a new book.</p>
         <mat-form-field appearance="fill">
-            <mat-label>ISBN</mat-label>
-            <input matInput [(ngModel)]="local_data.isbn" required>
-        </mat-form-field>
-
-
-        <mat-form-field appearance="fill" class="spaceBetweenFields">
-            <mat-label>Number In Stock</mat-label>
-            <input matInput [(ngModel)]="local_data.numInStock" type="number" required>
+            <mat-label>Book Name</mat-label>
+            <input matInput [(ngModel)]="local_data.bookName" formControlName="bookName" >
+            <mat-error *ngIf="hasError('bookName', 'required')">Book Name is required</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="spaceBetweenFields">
-            <mat-label>Image Name</mat-label>
-            <input matInput [(ngModel)]="local_data.imagePath">
+            <mat-label>Author Last Name</mat-label>
+            <input matInput [(ngModel)]="local_data.authorLastName" formControlName="authorLastName" >
+            <mat-error *ngIf="hasError('authorLastName', 'required')">Author Last Name is required</mat-error>
         </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="spaceBetweenFields"> 
+            <mat-label>Author First Name</mat-label>
+            <input matInput [(ngModel)]="local_data.authorFirstName" formControlName="authorFirstName" >
+            <mat-error *ngIf="hasError('authorFirstName', 'required')">Author First Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="summaryTextArea">
+            <mat-label>Summary</mat-label>
+            <textarea cols="36" rows="4" matInput [(ngModel)]="local_data.description" formControlName="description" ></textarea>
+            <mat-error *ngIf="hasError('description', 'required')">Description is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="spaceBetweenFields">
+            <mat-label>Genre</mat-label>
+            <mat-select class="genre" (selectionChange)="onChange($event)" formControlName="genre">
+                <mat-option [value]="option.value" *ngFor="let option of genres">{{ option.viewValue }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('genre', 'required')">Genre is required</mat-error>
+        </mat-form-field>
+
+        <!-- To go on the next row -->
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>ISBN</mat-label>
+                <input matInput [(ngModel)]="local_data.isbn" type="number" formControlName="isbn" min="1"> 
+                <mat-error *ngIf="hasError('isbn', 'maxlength')">You have more than 15 characters</mat-error>
+                <mat-error *ngIf="hasError('isbn', 'required')">ISBN is required</mat-error>
+                <mat-error *ngIf="hasError('isbn', 'max')">Amount must be less than 9999999999</mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="spaceBetweenFields">
+                <mat-label>Number In Stock</mat-label>
+                <input matInput [(ngModel)]="local_data.numInStock" type="number" formControlName="numInStock" min="1" max="100">
+                <mat-error *ngIf="hasError('numInStock', 'required')">Number In Stock is required</mat-error>
+                <mat-error *ngIf="hasError('numInStock', 'maxlength')">You have more than 2 characters</mat-error>
+                <mat-error *ngIf="hasError('numInStock', 'max')">Amount must be less than 50</mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="spaceBetweenFields">
+                <mat-label>Image Name</mat-label>
+                <input matInput [(ngModel)]="local_data.imagePath" formControlName="imagePath">
+            </mat-form-field>
+        </div>
     </div>
 
-</div>
-
-<div mat-dialog-actions>
-    <button mat-button (click)="doAction()">Save</button>
-    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
-</div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="doAction()" [disabled]="!addNewBookForm.valid" >Save</button>
+        <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+    </div>
+</form>

@@ -1,37 +1,47 @@
-<h1 mat-dialog-title>Updating User: <strong>{{local_data.firstName}} {{local_data.lastName}}</strong></h1>
+<form [formGroup]="updateUserForm" autocomplete="off" novalidate>
+  <h1 mat-dialog-title>Updating User: <strong>{{local_data.firstName}} {{local_data.lastName}}</strong></h1>
 
-<div mat-dialog-content>
-  <mat-form-field appearance="fill">
-    <mat-label>ID</mat-label>
-    <input matInput [(ngModel)]="local_data.id" disabled>
-  </mat-form-field>
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput [(ngModel)]="local_data.id" formControlName="id" >
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Username</mat-label>
-    <input matInput [(ngModel)]="local_data.username" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="spaceBetweenFields">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="local_data.username" formControlName="username">
+      <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>First Name</mat-label>
-      <input matInput [(ngModel)]="local_data.firstName" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="local_data.firstName" formControlName="firstName">
+        <mat-error *ngIf="hasError('firstName', 'required')">First Name is required</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Last Name</mat-label>
-    <input matInput [(ngModel)]="local_data.lastName" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="spaceBetweenFields">
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="local_data.lastName" formControlName="lastName">
+      <mat-error *ngIf="hasError('lastName', 'required')">Last Name is required</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" class="email">
-    <mat-label>Email</mat-label>
-    <input matInput [(ngModel)]="local_data.email" required>
-  </mat-form-field>
- 
-  <mat-select class="role" [(ngModel)]="defaultSelectRole" (selectionChange)="onChange($event)">
-    <mat-option [value]="option.value" *ngFor="let option of roles">{{ option.viewValue }}</mat-option>
-  </mat-select>
+    <mat-form-field appearance="fill" class="email">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="local_data.email" formControlName="email">
+      <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+      <mat-error *ngIf="hasError('email', 'email')">Email is in invalid format</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill" class="email">
+      <mat-select class="role" [(ngModel)]="defaultSelectRole" (selectionChange)="onChange($event)" formControlName="roles">
+        <mat-option [value]="option.value" *ngFor="let option of roles">{{ option.viewValue }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+    </mat-form-field>
 
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="doAction()">Update</button>
-  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
-</div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="doAction()" [disabled]="!updateUserForm.valid">Update</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+  </div>
+</form>
