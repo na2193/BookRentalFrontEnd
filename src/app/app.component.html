@@ -1,5 +1,5 @@
 <div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
     <a href="#" class="navbar-brand">Book Rental</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
@@ -10,8 +10,12 @@
         <a href="/admin" class="nav-link" routerLink="admin">Library (Admin)</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="showAdminBoard">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Users</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/library" class="nav-link" *ngIf="isLoggedIn" routerLink="library">Library</a>
       </li>
     </ul>
 

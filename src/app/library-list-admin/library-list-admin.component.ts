@@ -69,6 +69,14 @@ export class LibraryListAdmin implements OnInit {
             // add a success message popup or something
           },
           (error: HttpErrorResponse) => {
+            // doesn't work
+            if(error.status == 400) {
+              alert("Unable to add the book since it already exists in the system -> " + result.data.bookName);
+            }
+            // console.log(error.status);
+            // console.log(error.headers);
+            // console.log(error.error);
+            // console.log(error.statusText);
             alert(error.message);
           }
         )

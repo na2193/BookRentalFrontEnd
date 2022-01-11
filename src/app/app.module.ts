@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { UserListDialogBoxComponent } from './user-list-dialog-box/user-list-dia
 import { UserListDeleteDialogBox } from './user-list-delete-dialog-box/user-list-delete-dialog-box.component';
 import { LibraryListAdminUpdateBookDialogBoxComponent } from './library-list-admin-update-book-dialog-box/library-list-admin-update-book-dialog-box.component';
 import { LibraryListAdminDeleteBookDialogBoxComponent } from './library-list-admin-delete-book-dialog-box/library-list-admin-delete-book-dialog-box.component';
+import { UserDisplayLibraryBookListComponent } from './user-display-library-book-list/user-display-library-book-list.component';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { LibraryListAdminDeleteBookDialogBoxComponent } from './library-list-adm
     UserListDialogBoxComponent,
     UserListDeleteDialogBox,
     LibraryListAdminUpdateBookDialogBoxComponent,
-    LibraryListAdminDeleteBookDialogBoxComponent
+    LibraryListAdminDeleteBookDialogBoxComponent,
+    UserDisplayLibraryBookListComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { LibraryListAdminDeleteBookDialogBoxComponent } from './library-list-adm
     ToastrModule,
     NgxPaginationModule,
     AngularMaterialModule,
-    NgbModule
+    NgbModule,
+    FlexLayoutModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

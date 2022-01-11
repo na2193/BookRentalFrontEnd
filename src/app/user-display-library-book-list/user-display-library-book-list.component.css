@@ -1,0 +1,162 @@
+.mat-card {
+    min-height: 575px;
+    max-height: 575px;
+    overflow-y: auto;
+    display: flex; 
+    justify-content: start; 
+    flex-direction: column; 
+}
+
+.mat-card-actions {
+    margin: auto 0 0;
+}
+
+.description {
+    overflow-wrap: break-word;
+    align-content: left;
+}
+
+.author {
+    font-size: 16px;
+    color: dimgray;
+}
+
+.description_label {
+    text-decoration: underline;
+}
+
+.footer {
+    font-size: 14px;
+}
+
+.isbn {
+    float: left;
+}
+
+.numInStock {
+    float: right;
+}
+
+/* .add {
+    margin: auto;
+    width: 50%;
+} */
+
+/* .shopping-cart {
+    color: green;
+} */
+
+.avatar {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 175px;
+    margin-left: 25%;
+    margin-top: -20px;
+    /* line-height: 100px;
+    text-align: center; */
+    /* background-color: #f5f6f7;
+    color: #8b95a5;
+    text-transform: uppercase; */
+   
+}
+
+img {
+    max-width: 100%;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+
+/* ADD TO CART CSS
+*/
+.center {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.buttons {
+    padding: 10px;
+    background-color: #d6d4d4;
+    border-radius: 8px;
+    position: relative
+}
+
+.dot {
+    height: 14px;
+    width: 14px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    left: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    color: #fff;
+    opacity: 0
+}
+
+.cart-button {
+    height: 30px
+}
+
+.cart-button:focus {
+    box-shadow: none
+}
+
+.cart {
+    position: relative;
+    height: 30px !important;
+    width: 50px;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 11px;
+    border-radius: 5px;
+    font-size: 21px
+}
+
+.cart-button.clicked span.dot {
+    animation: item 0.3s ease-in forwards
+}
+
+/* This below doesn't realy work, need to figure out how to do it in angular
+*/
+@keyframes item {
+    0% {
+        opacity: 1;
+        top: 30%;
+        left: 30%
+    }
+
+    25% {
+        opacity: 1;
+        left: 26%;
+        top: 0%
+    }
+
+    50% {
+        opacity: 1;
+        left: 23%;
+        top: -22%
+    }
+
+    75% {
+        opacity: 1;
+        left: 19%;
+        top: -18%
+    }
+
+    100% {
+        opacity: 1;
+        left: 14%;
+        top: 28%
+    }
+}
