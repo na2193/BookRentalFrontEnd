@@ -56,8 +56,19 @@
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="spaceBetweenFields">
-                <mat-label>Image Name</mat-label>
-                <input matInput [(ngModel)]="local_data.imagePath" formControlName="imagePath">
+                <!-- <mat-label>Image Name</mat-label> -->
+                <!-- <input matInput [(ngModel)]="local_data.imagePath" formControlName="imagePath"> -->
+                <!-- Readonly Input to show File names -->
+                <input matInput [(ngModel)]="local_data.imagePath" readonly name="imagePath" formControlName="imagePath" hidden/>
+
+                <!-- Browse Button -->
+                <!-- <button mat-flat-button color="primary">Browse</button> -->
+
+                <!-- Fetch selected filed on change -->
+                <input type="file" #UploadFileInput id="fileUpload" (change)="selectFiles($event)" name="fileUpload"
+                multiple="multiple" accept="image/*" />
+
+                
             </mat-form-field>
         </div>
     </div>

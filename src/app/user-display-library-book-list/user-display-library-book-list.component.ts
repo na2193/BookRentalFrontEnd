@@ -15,7 +15,6 @@ import { Observable } from 'rxjs';
 export class UserDisplayLibraryBookListComponent implements OnInit {
   public books: Book[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
   obs: Observable<any>;
   dataSource: MatTableDataSource<Book>;
 
@@ -31,6 +30,7 @@ export class UserDisplayLibraryBookListComponent implements OnInit {
       .subscribe((response: Book[]) => {
         this.books = response;
 
+        // setting up the pagination data
         this.dataSource = new MatTableDataSource<Book>(response);
         this.dataSource.paginator = this.paginator;
         this.obs = this.dataSource.connect();

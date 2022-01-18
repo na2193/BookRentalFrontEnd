@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { LibraryListAdmin } from './library-list-admin/library-list-admin.component';
 import { UserDisplayLibraryBookListComponent } from './user-display-library-book-list/user-display-library-book-list.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'user', component: UserListComponent },
   { path: 'admin', component: LibraryListAdmin },
   { path: 'library', component: UserDisplayLibraryBookListComponent },
+  { path: 'file', component: FileUploadComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

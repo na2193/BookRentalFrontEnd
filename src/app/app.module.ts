@@ -26,6 +26,7 @@ import { UserListDeleteDialogBox } from './user-list-delete-dialog-box/user-list
 import { LibraryListAdminUpdateBookDialogBoxComponent } from './library-list-admin-update-book-dialog-box/library-list-admin-update-book-dialog-box.component';
 import { LibraryListAdminDeleteBookDialogBoxComponent } from './library-list-admin-delete-book-dialog-box/library-list-admin-delete-book-dialog-box.component';
 import { UserDisplayLibraryBookListComponent } from './user-display-library-book-list/user-display-library-book-list.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { UserDisplayLibraryBookListComponent } from './user-display-library-book
     UserListDeleteDialogBox,
     LibraryListAdminUpdateBookDialogBoxComponent,
     LibraryListAdminDeleteBookDialogBoxComponent,
-    UserDisplayLibraryBookListComponent
+    UserDisplayLibraryBookListComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
